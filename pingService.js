@@ -3,11 +3,11 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// URLs dos serviços
-const campaignCraftUrl = 'https://campaigncraft.onrender.com';
+// URL da rota a ser requisitada
+const url = 'https://campaigncraft.onrender.com';
 
 // Função para enviar uma requisição GET
-const pingService = async (url) => {
+const pingService = async () => {
   try {
     await axios.get(url);
     console.log(`Requisição para ${url} enviada com sucesso!`);
@@ -16,22 +16,18 @@ const pingService = async (url) => {
   }
 };
 
-// Configurar a execução a cada 20 minutos
-const intervalMinutes = 20;
-const intervalMilliseconds = intervalMinutes * 60 * 1000;
+// Configurar a execução a cada 5 minutos (300.000 milissegundos)
+const intervalMilliseconds = 5 * 60 * 1000;
 
 const runPings = () => {
-  // Enviar requisições para o serviço CampaignCraft
-  pingService(campaignCraftUrl);
+  // Enviar requisição para a rota especificada
+  pingService();
 };
 
 // Configurar intervalo de execução
 setInterval(runPings, intervalMilliseconds);
 
-// Enviar a primeira requisição imediatamente
-runPings();
-
-// Adicionar um endpoint simples para o serviço de web
+// Adicionar um endpoint simples para verificar se o serviço está em execução
 app.get('/', (req, res) => {
   res.send('Ping Service is running');
 });
