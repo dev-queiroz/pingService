@@ -14,4 +14,4 @@ jobs:
 
       - name: Enviar requisição GET
         run: |
-          curl -X GET https://backendccraft.onrender.com/api/mail/send
+          curl -X GET https://backendccraft.onrender.com
