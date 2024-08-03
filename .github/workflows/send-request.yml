@@ -2,7 +2,7 @@ name: Enviar Requisição GET
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Executar a cada 5 minutos
+    - cron: '*/5 * * * *'
 
 jobs:
   send-request:
@@ -14,4 +14,4 @@ jobs:
 
       - name: Enviar requisição GET
         run: |
-          curl -X GET https://campaigncraft.onrender.com/send-email
+          curl -X GET https://backendccraft.onrender.com/send-email
