@@ -1,0 +1,12 @@
+{
+  "name": "keep-alive",
+  "version": "1.0.0",
+  "description": "Keep alive script for website",
+  "main": "keep-alive.js",
+  "scripts": {
+    "start": "node keep-alive.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
